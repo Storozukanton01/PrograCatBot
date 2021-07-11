@@ -15,5 +15,14 @@ module.exports = {
                 [{text: 'Сыграть еще разок', callback_data: '/again'}]
             ]
         })
+    },
+
+    againWinOptions: {
+        reply_markup: JSON.stringify({
+            inline_keyboard: [
+                [{text: 'Сыграть еще разок', callback_data: '/again'}],
+                [{text: 'Получить фото котика', callback_data: '/againwin'}]
+            ]
+        })
     }
 }
