@@ -63,7 +63,8 @@ const start = () => {
         }
 
         if(data === '/againwin') {
-            return bot.sendPhoto(chatId, 'https://thiscatdoesnotexist.com/')
+            const RandomNumberCat = Math.floor(Math.random() * 10)
+            return bot.sendPhoto(chatId, `/img/${RandomNumberCat}.jpg`)
         }
 
         if(`${data}` !== `${chats[chatId]}`) {
