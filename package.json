@@ -1,7 +1,6 @@
 {
   "name": "telegramBot",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "nodemon": "^2.0.12",
@@ -17,5 +16,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Storozukanton01/progracat_bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Storozukanton01/progracat_bot/issues"
+  },
+  "homepage": "https://github.com/Storozukanton01/progracat_bot#readme",
+  "description": ""
 }
