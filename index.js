@@ -56,7 +56,6 @@ const start = () => {
     bot.on('callback_query', async msg => {
         const data = msg.data;
         const chatId = msg.message.chat.id;
-        console.log(data);
 
         if(data === '/again') {
             return startgame(chatId)
@@ -64,7 +63,20 @@ const start = () => {
 
         if(data === '/againwin') {
             const RandomNumberCat = Math.floor(Math.random() * 10 / 2)
-            return bot.sendPhoto(chatId, `/img/${RandomNumberCat}.jpg`)
+            console.log(`/img/${RandomNumberCat}.jpg`);
+            if (RandomNumberCat === 0) {
+                return bot.sendPhoto(chatId, `./img/0.jpg`)
+            } else if (RandomNumberCat === 1) {
+                return bot.sendPhoto(chatId, `./img/1.jpg`)
+            } else if (RandomNumberCat === 2) {
+                return bot.sendPhoto(chatId, `./img/2.jpg`)
+            } else if (RandomNumberCat === 3) {
+                return bot.sendPhoto(chatId, `./img/3.jpg`)
+            } else if (RandomNumberCat === 4) {
+                return bot.sendPhoto(chatId, `./img/4.jpg`)
+            } else {
+                return bot.sendPhoto(chatId, `./img/5.jpg`)
+            }
         }
 
         if(`${data}` !== `${chats[chatId]}`) {
@@ -80,7 +92,7 @@ const start = () => {
             //         hide_keyboard: true
             //     })
             // }); 
-            return bot.sendMessage(chatId, `Попробуй еще разок,  это была цифра ${chats[chatId]}`, againOptions)
+            return bot.sendMessage(chatId, `Это была цифра ${chats[chatId]}, нажми на нее или сыграй еще разок)`, againOptions)
             
 
         } else {
