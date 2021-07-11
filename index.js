@@ -63,7 +63,7 @@ const start = () => {
         }
 
         if(data === '/againwin') {
-            const RandomNumberCat = Math.floor(Math.random() * 10)
+            const RandomNumberCat = Math.floor(Math.random() * 10 / 2)
             return bot.sendPhoto(chatId, `/img/${RandomNumberCat}.jpg`)
         }
 
