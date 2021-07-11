@@ -36,6 +36,7 @@ const start = () => {
     
         if(text === '/start') {
             await bot.sendMessage(chatId, `Привет, ${msg.from.username}, я пушистый программист, давай дружить`)
+            await bot.sendPhoto(chatId, 'https://thiscatdoesnotexist.com/')
             return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/5.webp')
         }
     
