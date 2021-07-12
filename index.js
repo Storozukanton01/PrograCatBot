@@ -12,7 +12,7 @@ const chats = {}
 
 const startgame = async (chatId) => {
     await bot.sendMessage(chatId, `Сейчас я загадаю цифру от 1 до 9, а тебе нужно отгадать)`)
-    const RandomNumber = Math.floor(Math.random() * 10)
+    let RandomNumber = Math.floor(Math.random() * 10)
     if(RandomNumber === 0) {
         RandomNumber++
     }
