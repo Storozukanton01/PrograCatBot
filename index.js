@@ -44,7 +44,7 @@ const start = () => {
             return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/6.webp')
         }
 
-        if(text === '/game') {
+        if(text === '/game') { 
             return startgame(chatId)
         }
 
