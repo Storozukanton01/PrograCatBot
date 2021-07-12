@@ -62,21 +62,8 @@ const start = () => {
         }
 
         if(data === '/againwin') {
-            const RandomNumberCat = Math.floor(Math.random() * 10 / 2)
-            console.log(`/img/${RandomNumberCat}.jpg`);
-            if (RandomNumberCat === 0) {
-                return bot.sendPhoto(chatId, `./img/0.jpg`)
-            } else if (RandomNumberCat === 1) {
-                return bot.sendPhoto(chatId, `./img/1.jpg`)
-            } else if (RandomNumberCat === 2) {
-                return bot.sendPhoto(chatId, `./img/2.jpg`)
-            } else if (RandomNumberCat === 3) {
-                return bot.sendPhoto(chatId, `./img/3.jpg`)
-            } else if (RandomNumberCat === 4) {
-                return bot.sendPhoto(chatId, `./img/4.jpg`)
-            } else {
-                return bot.sendPhoto(chatId, `./img/5.jpg`)
-            }
+            const RandomNumberCat = Math.floor(Math.random() * 10000 / 2)
+            return bot.sendPhoto(chatId, `https://d2ph5fj80uercy.cloudfront.net/05/cat${RandomNumberCat}.jpg`)
         }
 
         if(`${data}` !== `${chats[chatId]}`) {
@@ -96,7 +83,7 @@ const start = () => {
             
 
         } else {
-            return bot.sendMessage(chatId, `Поздравляю, ты отгадал, это была цифра ${chats[chatId]}, теперь ты можешь получить фото случайного котика :)`, againWinOptions)
+            return bot.sendMessage(chatId, `Поздравляю, ты отгадал, это была цифра ${chats[chatId]}, теперь ты можешь получить фото случайно сгенерированого нейросетью котика :)`, againWinOptions)
         }
     })
 }
