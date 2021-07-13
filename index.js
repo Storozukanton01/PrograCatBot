@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const telegramApi = require('node-telegram-bot-api')
 
 const { gameOptions, againOptions, againWinOptions } = require('./options')
