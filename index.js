@@ -50,8 +50,10 @@ const start = () => {
             return startgame(chatId)
         }
 
-        await bot.sendMessage(chatId, `Ты написал котику "${msg.text}", но он тебя не понял. К сожалению я его еще не всем командам обучил :( ... Попробуй воспользоваться командой "/info" или сыграть с котиком в игру с помощью команды "/game"`)
-        return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/192/99.webp')
+        if(text.includes('post') === false) {
+            await bot.sendMessage(chatId, `Ты написал котику "${msg.text}", но он тебя не понял. К сожалению я его еще не всем командам обучил :( ... Попробуй воспользоваться командой "/info" или сыграть с котиком в игру с помощью команды "/game"`)
+            return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/192/99.webp')
+        }
 
     })
 
