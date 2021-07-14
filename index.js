@@ -35,22 +35,44 @@ const start = () => {
                 {command: '/game', description: 'Сыграть в игру'}
             ]
         )
-    
-        if(text === '/start') {
-            await bot.sendMessage(chatId, `Привет, ${msg.from.username}, я пушистый программист, давай дружить`)
-            return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/5.webp')
-        }
-    
-        if(text === '/info') {
-            await bot.sendMessage(chatId, `Я хакнул твое имя лапками. Тебя зовут ${msg.from.username}`)
-            return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/6.webp')
-        }
 
-        if(text === '/game') { 
+        if(text === 'Получить информацию обо мне' || text === '/info') {
+            if(msg.from.username === undefined) {
+                await bot.sendMessage(chatId, `Я хакнул твое имя лапками. Тебя зовут ${msg.from.first_name}`)
+                return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/6.webp')
+            } else {
+                await bot.sendMessage(chatId, `Я хакнул твой ник лапками. Вот он - ${msg.from.username}`)
+                return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/6.webp')
+            }
+        } else if(text === 'Сыграть в игру' || text === '/game') {
             return startgame(chatId)
-        }
-
-        if(text.includes('post') === false) {
+        } else if(text === 'Получить картинку котика от нейросети') {
+            const RandomNumberCat1 = Math.floor(Math.random() * 10000 / 2)
+            return bot.sendPhoto(chatId, `https://d2ph5fj80uercy.cloudfront.net/05/cat${RandomNumberCat1}.jpg`)
+        } else if(text === undefined) {
+            return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/6.webp')
+        } else if(text === 'Закрыть') {
+            bot.sendMessage(chatId, 'Закрываю клавиатуру...', {
+                reply_markup: {
+                    remove_keyboard: true
+                }
+            })
+        } else if(text === '/start') {
+            await bot.sendMessage(chatId, `Привет, ${msg.from.first_name}, я пушистый программист, давай дружить`, {
+                reply_markup: {
+                    keyboard: [
+                        ['Получить информацию обо мне', 'Сыграть в игру'],
+                        ['Получить картинку котика от нейросети'],
+                        [
+                            {text: 'Отправить местоположение', request_location: true},
+                            {text: 'Отправить контакт', request_contact: true}
+                        ],
+                        ['Закрыть']
+                    ]
+                }
+            })
+            return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/5.webp')
+        } else if(text.includes('post') === false) {
             await bot.sendMessage(chatId, `Ты написал котику "${msg.text}", но он тебя не понял. К сожалению я его еще не всем командам обучил :( ... Попробуй воспользоваться командой "/info" или сыграть с котиком в игру с помощью команды "/game"`)
             return bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/697/ba1/697ba160-9c77-3b1a-9d97-86a9ce75ff4d/192/99.webp')
         }
